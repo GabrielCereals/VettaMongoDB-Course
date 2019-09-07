@@ -1,0 +1,32 @@
+Buscar campos (C Read U D)
+
+There is no god damn difference between double quotes ( " ") and single quotes ( ''  ).
+*insert one
+db.users.insertOne( {...code... })
+
+*insert many es un array
+db.users.insertMany( [..code..])
+
+*db.users.find()
+returns this: 5d73f3cde188590010d4ee1c
+gets you the hash that will replace the id we used to create our schema 
+
+*db.users.find( object: somethign )
+
+ - db.users.find( username: "hugo" ) (busca el usuario con username Hugo pero falla por que se le mando "hugo" como si fuera la comparacion == , 
+                                     Tambien se pueden hacer regex en los querys
+ - db.users.find( username: /hugo/i ) (ignora las mayusculas y minusculas, haciendo posible la busqueda del texto)
+
+*db.users.find( {age: {$gt: 25} } )    el uso de $ representa el uso de funciones internas de mongoDB, en este caso "$gt" busca el valor mayor (greter than..)
+                                      por ende "$lt" busca el valor menor que...   
+                                      mas info aqui https://bit.ly/2kAdtTo
+
+*db.users.find({age: {$gt: 25} }).sort({age: +1})
+
+*db.users.find( {$and: [ {author:null}, {created_by: {$exists:true } }] })
+    db.users.find({
+        $and:[ {author:null}, {created_by: {$exists:true } }] })
+
+*db.users.find().pretty()
+gets you a better view of the object with indentation and shit.
+

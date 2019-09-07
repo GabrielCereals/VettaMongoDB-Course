@@ -21,6 +21,12 @@ gets you the hash that will replace the id we used to create our schema
                                       por ende "$lt" busca el valor menor que...   
                                       mas info aqui https://bit.ly/2kAdtTo
 
+*db.users.find({age: {$gt: 25} }).sort({age: +1})
+
+*db.users.find( {$and: [ {author:null}, {created_by: {$exists:true } }] })
+    db.users.find({
+        $and:[ {author:null}, {created_by: {$exists:true } }] })
+
 *db.users.find().pretty()
 gets you a better view of the object with indentation and shit.
 

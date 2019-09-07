@@ -1,0 +1,9 @@
+Actualizar campos (C R Update D)
+db.collection.updateOne()
+db.collection.updateMany()
+db.collection.replaceOne()
+
+db.users.updateOne({
+    age:23, 
+    $set: {age: 30}
+})
