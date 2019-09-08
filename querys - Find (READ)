@@ -1,4 +1,4 @@
-Buscar campos (C Read U D)
+Crear objetos (Create r u d)
 
 There is no god damn difference between double quotes ( " ") and single quotes ( ''  ).
 *insert one
@@ -6,6 +6,9 @@ db.users.insertOne( {...code... })
 
 *insert many es un array
 db.users.insertMany( [..code..])
+
+------------------------------------------------------------------------
+Leer/ Buscar campos (c Read u d)
 
 *db.users.find()
 returns this: 5d73f3cde188590010d4ee1c
@@ -30,3 +33,38 @@ gets you the hash that will replace the id we used to create our schema
 *db.users.find().pretty()
 gets you a better view of the object with indentation and shit.
 
+------------------------------------------------------------------------
+Actualizar (c r Update d)
+
+Actualizar campos (C R Update D)
+db.collection.updateOne()
+db.collection.updateMany()
+db.collection.replaceOne()
+
+db.users.updateOne({
+    age:23, 
+    $set: {age: 30}
+})
+
+------------------------------------------------------------------------
+Eliminar (c r u Delete)
+
+db.collection.deleteOne()
+db.collection.deleteMany()
+
+db.collection.deleteOne({
+    "_id" : ObjectId(" 12313somehash13123 ")
+})
+
+db.collection.deleteMany({
+    price: {
+        $lt: 20
+    }
+})
+
+
+------------------------------------------------------------------------
+Agregación
+
+se ejecuta un grupo de queries de otra forma conocidos como "Pipes", que agrupan datos y 
+con el resultado ejecuta una o mas queries.
